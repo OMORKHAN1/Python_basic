@@ -1,5 +1,5 @@
 if __name__ == '__main__':
-    N = int(input())  # Read the number of commands
+    N = int(input("Enter number of operations you want to execute:  "))  # Read the number of commands
     li = []  # Initialize an empty list
 
 
