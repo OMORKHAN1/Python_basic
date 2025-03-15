@@ -1,0 +1,32 @@
+if __name__ == '__main__':
+    N = int(input())  # Read the number of commands
+    li = []  # Initialize an empty list
+
+
+    for _ in range(N):
+        command = input().split()
+        action = command[0]
+        args = command[1:]
+
+        try:
+                if action == 'insert':
+                        li.insert(int(args[0]), int(args[1])) # insert i e
+                elif action == 'print':
+                        print(li)
+                elif action == 'remove':
+                        li.remove(int(args[0])) # Remove first occurrence of e
+                elif action == "append":
+                        li.append(int(args[0]))  # Append e to the end
+                elif action == "sort":
+                        li.sort()  # Sort the list
+                elif action == "pop":
+                        li.pop()  # Remove last element
+                elif action == "reverse":
+                        li.reverse()  # Reverse the list 
+            
+        except (ValueError, IndexError):
+                print("Invalid command! Please enter a valid command.")
+
+
+
+
