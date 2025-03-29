@@ -1,0 +1,31 @@
+shoe_numbers = int(input("Number of shoes: "))
+shoe_size = list(map(int, input("Available Sizes: ").split())) #input takes char as input. to convert multiple input into int we need map to iterate over input
+Customer = int(input("Number of customers: "))
+
+earnings = 0
+
+for _ in range(Customer):
+    
+    size, price = map(int, input("Size and price: ").split())
+
+    if size in shoe_size:
+        earnings += price
+        shoe_size.remove(size)
+    else:
+        print("Not availaabele")
+
+print("Total earnings", earnings)
+
+#use of counter acts as dictionary
+from collections import Counter
+x = int(input())
+y = Counter(map(int, input().split()))
+z = int(input())
+
+total = 0
+for i in range(z):
+    size, rate = map(int, input().split())
+    if y[size]: 
+        y[size] -= 1
+        total += rate
+print(total)
