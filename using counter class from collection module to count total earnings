@@ -29,3 +29,23 @@ for i in range(z):
         y[size] -= 1
         total += rate
 print(total)
+
+Customer = int(input("Number of customers: "))
+
+earnings = 0
+
+while True:
+    c = input("Enter x to exit or enter to continue: ")
+    if c == "x":
+        break
+    
+    size, price = map(int, input("Size and price: ").split())
+
+    if size in shoe_size:
+        earnings += price
+        shoe_size.remove(size)
+    else:
+        print("Not availaabele")
+
+print("Total earnings", earnings)
+
