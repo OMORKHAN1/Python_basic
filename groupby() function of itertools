@@ -1,0 +1,6 @@
+from itertools import groupby #groupby() function from itertools is used to group consecutive elements in an iterable 
+s = input()
+
+for key, group in groupby(s): #groupby returns 2 output, key element and consecutive
+    z = len(tuple(group)) #goupby returns iterator, need to convert it into list or tuple
+    print((z,int(key)), end=" ") #inside print function you dont need to declare tuple or list. just group them with appropriate brackets for required data type
