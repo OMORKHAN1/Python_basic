@@ -1,0 +1,6 @@
+from itertools import combinations_with_replacement #it allows repetations
+str1, length = input().upper().split()
+
+
+for j in (combinations_with_replacement(sorted(str1),int(length))): 
+    print (''.join(j))
