@@ -4,3 +4,27 @@ s = input()
 for key, group in groupby(s): #groupby returns 2 output, key element and consecutive
     z = len(tuple(group)) #goupby returns iterator, need to convert it into list or tuple
     print((z,int(key)), end=" ") #inside print function you dont need to declare tuple or list. just group them with appropriate brackets for required data type
+
+
+#manual approach 
+
+s = "abbbcccdddaa"
+
+# Initialize variables to track the previous character and its count
+previous_char = s[0]
+count = 1
+
+# Iterate through the string starting from the second character
+for i in range(1, len(s)):
+    if s[i] == previous_char:
+        # If the current character is the same as the previous one, increment the count
+        count += 1
+    else:
+        # If the current character is different, print the count of the previous character
+        print((count, previous_char), end=", ")
+        # Reset the previous character and count for the new character
+        previous_char = s[i]
+        count = 1
+
+# Print the count for the last group of characters
+print((count, previous_char))
