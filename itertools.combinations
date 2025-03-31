@@ -1,0 +1,6 @@
+from itertools import combinations
+str1, length = input().upper().split()
+
+for i in range(1, int(length)+1): #iterating from 1 to 3
+    for j in combinations(sorted(str1), i): #when i=1, slicing only 1 substring from string, when i=3 slicing 2 substings from string 
+        print (''.join(j))
