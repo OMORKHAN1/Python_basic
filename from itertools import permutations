@@ -1,0 +1,13 @@
+from itertools import permutations
+s = input().upper()
+k = int(input())
+z = sorted(permutations(s,k)) #sorted helps to arrange the ouput in lexicographic order and pertmutaion returns an iterator. To get the ouput need to convert the output in list format
+for per in z:
+    print("".join(per))
+
+#alternative
+from itertools import permutations
+str1, int1 = input().upper().split()
+
+for i in sorted(permutations(str1, int(int1))): # here int1 is converted from sttring to int
+    print (''.join(i))
