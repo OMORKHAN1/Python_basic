@@ -1,0 +1,10 @@
+import math
+
+r = 5
+theta = 0.93  # radians
+
+real = r * math.cos(theta)
+imag = r * math.sin(theta)
+
+z = complex(real, imag)
+print(f"Rectangular form: {z:.0f}")
