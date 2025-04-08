@@ -1,0 +1,10 @@
+import math
+
+z = input("Enter complex number: ")
+z = complex(z)
+
+r = abs(z)                           # Magnitude: sqrt(3² + 4²) = 5.0
+theta = math.atan2(z.imag, z.real)  # Angle in radians
+
+print(f"Polar form: r = {r:.3f}, θ = {theta:.3f} radians")
+print(f"Angle in degrees = {math.degrees(theta)} degree")
