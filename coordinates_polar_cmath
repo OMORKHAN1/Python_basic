@@ -1,0 +1,8 @@
+// z=a+bj rectangular form for complex number 
+// z=r(cosθ+jsinθ), r & θ have been calculated (polar form)
+import cmath
+z = complex(input("Enter complex number: "))
+r = abs(z)
+θ = cmath.phase(z)
+print(f"r = {r:.3f}")
+print(f"θ = {θ:.3f} radiants")
