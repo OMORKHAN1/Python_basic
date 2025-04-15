@@ -1,0 +1,24 @@
+def average(h):
+    return sum(h)/len(h)
+
+
+number = int(input("Enter the total number of distinct heights: "))
+heights = set(map(int,input("Enter all the heights: ").split()))
+
+
+result = average(heights)
+
+print(f"{result:.3f}")
+
+//or 
+
+def average(array):
+    # your code goes here
+    array = set(array)
+    return sum(array)/len(array)
+
+if __name__ == '__main__':
+    n = int(input())
+    arr = list(map(int, input().split()))
+    result = average(arr)
+    print(result)
