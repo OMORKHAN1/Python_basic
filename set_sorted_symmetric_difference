@@ -1,0 +1,11 @@
+m = input()
+a = set(map(int,input().split()))
+
+n = input()
+
+b = set(map(int,input().split()))
+
+result = sorted(a.symmetric_difference(b))
+
+for num in result:
+    print(num)
