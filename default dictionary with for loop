@@ -1,0 +1,75 @@
+from collections import defaultdict
+input_n, input_m = map(int, input().split())
+d = defaultdict(list)
+for i in range(input_n):
+    ans1 = input() // isput as keys
+    d[ans1].append(i+1) // storing as value of the dict
+for j in range(input_m):
+    ans2 = input()
+    if ans2 in d:
+        print(*d[ans2]) // * mark unpacks the data by removing braackets & comams and priting values with whitespace
+    else:
+        print(-1)
+
+  //another version 
+
+
+  from collections import defaultdict
+
+n, m = map(int, input().split())
+
+position = defaultdict(list)
+
+# Read Group A
+for i in range(1, n + 1):
+    word = input()
+    position[word].append(str(i)) // storing value of the dict as string
+
+# Read Group B (fix: use m here)
+for _ in range(m):
+    word = input()
+    if word in position:
+        print(" ".join(position[word]))
+    else:
+        print(-1)
+
+  //another 
+
+from collections import defaultdict
+
+n, m = map(int, input().split())
+
+# Read entire Group A in one line, then split
+group_a = input().split()
+# Read entire Group B in one line, then split
+group_b = input().split()
+
+position = defaultdict(list)
+
+# Store positions of words in group A (1-indexed)
+for i in range(n):
+    position[group_a[i]].append(str(i + 1))
+
+# Check each word in group B
+for word in group_b:
+    if word in position:
+        print(" ".join(position[word]))
+    else:
+        print(-1)
+// list version 
+
+  n, m = map(int, input().split())
+
+group_a = [input().strip() for _ in range(n)]
+group_b = [input().strip() for _ in range(m)]
+
+for word in group_b:
+    indices = []
+    for idx, val in enumerate(group_a):
+        if val == word:
+            indices.append(str(idx + 1))  # +1 because positions are 1-indexed
+    if indices:
+        print(" ".join(indices))
+    else:
+        print("-1")
+
