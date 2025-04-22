@@ -1,0 +1,10 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+import calendar // calendar is a built in module
+
+month, day, year = map(int,input().split())
+
+day_index = calendar.weekday(year, month, day) // calandar is a class and weekday is a function inside the class
+
+days = ["MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY", "SUNDAY"] // returns number such as 2 for wednesday 
+
+print(days[day_index]) // convert number into weekname such as days[2] = WEDNESDAY 
