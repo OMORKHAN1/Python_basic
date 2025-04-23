@@ -1,0 +1,32 @@
+from html.parser import HTMLParser
+
+class MyHTMLParser(HTMLParser): // MyHTMLParser child class of parent class HTMLParser which will have all the atributes of parent class on top i will add some
+    def handle_comment(self, data):
+        # Check if the comment is a single-line or multi-line
+        if '\n' in data:
+            # It's a multi-line comment
+            print(">>> Multi-line Comment")
+            # Split and print each line of the multi-line comment
+            for line in data.splitlines(): // splitness() will covert the multiple lines into list 
+                print(line.strip()) // for loop will help to print them one by one and strip() will remove leading or trailing whitespaces
+        else:
+            # It's a single-line comment
+            print(">>> Single-line Comment")
+            print(data.strip())
+
+    def handle_data(self, data):
+        # If the data is not just a newline, print it
+        if data.strip() != "": // strio() will remove spaces and \n after that if there is any str inside the " " python will treat it as data. argument passes as "hello". 
+            print(">>> Data")
+            print(data.strip())
+
+
+if __name__ == "__main__":
+    n = int(input())  # The number of lines in the HTML snippet
+    
+    # Read the HTML input
+    html_snippet = "\n".join(input().strip() for _ in range(n))
+    
+    # Create the parser object and feed the input HTML
+    parser = MyHTMLParser()
+    parser.feed(html_snippet) // .feed takes necesssary actions based on the argument & instances 
