@@ -1,7 +1,7 @@
-from collections import OrderedDict
+from collections import OrderedDict // OrderedDict keeps the isertation order. older python does not maintain isertation order for regular dictionary but 3.7+ does for regular dictionary too
 n = int(input())
 
-Ordered_Dict = OrderedDict()
+Ordered_Dict = OrderedDict() // This creates an instance of OrderedDict from the collections module. 
 
 
 for _ in range(n):
