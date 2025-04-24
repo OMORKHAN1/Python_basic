@@ -3,14 +3,14 @@ from collections import namedtuple
 n = int(input())  # Number of students
 columns = input().split()  # Column headers
 
-Student = namedtuple('Student', columns)  # Create a namedtuple class with the column names
+Student = namedtuple('Student', columns)  # Create a student class with the column names where namedtuple is the function for tuple. This student class is the blueprint 
 
 total_marks = 0
 
 for _ in range(n):
     data = input().split()
-    student = Student(*data)  # Create a namedtuple instance
-    total_marks += int(student.MARKS)  # Access MARKS by name
+    s1 = Student(*data)  # s1 is the instance which will follow the blueprint, student class. unpacking data into class and storing inside the instance
+    total_marks += int(s1.MARKS)  # Access MARKS by instance
 
 average = total_marks / n
 print(f"{average:.2f}")
