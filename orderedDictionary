@@ -1,0 +1,51 @@
+from collections import OrderedDict
+n = int(input())
+
+Ordered_Dict = OrderedDict()
+
+
+for _ in range(n):
+    product = input()
+    n,m = map(int,input().split())
+    net_price = n*m
+    Ordered_Dict[product] = net_price
+    
+
+for item,total in Ordered_Dict.items():
+    print(f"{item} {total}")
+
+// alternative
+
+from collections import OrderedDict
+
+n = int(input())
+ordered_dict = OrderedDict()
+
+for _ in range(n):
+    *item_name, price = input().split()  # split line from right, * marks will help to unpack last one for the last variable and rest of the input for first. helps when we have two variables but more input
+    name = ' '.join(item_name)           # rejoin name parts
+    price = int(price)
+
+    if name in ordered_dict:
+        ordered_dict[name] += price // for multiple input with same key getting add
+    else:
+        ordered_dict[name] = price // for new input diretly key, value pair
+
+for item, total in ordered_dict.items():
+    print(f"{item} {total}")
+
+// alternative without adding same input and excepting overwriting 
+
+from collections import OrderedDict
+
+n = int(input())
+ordered_dict = OrderedDict()
+
+for _ in range(n):
+    *item_name, price = input().split()  # split line from right
+    name = ' '.join(item_name)           # rejoin name parts
+    price = int(price)
+    ordered_dict[name] = price
+
+for item, total in ordered_dict.items():
+    print(f"{item} {total}")
