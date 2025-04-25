@@ -1,0 +1,10 @@
+regex_pattern = r"(?<=\d)[,.](?=\d)"	# Do not delete 'r'. looking for is there any digit before and after ,. 
+  # split at comma or dot only if surrounded by digits
+
+
+import re
+print("\n".join(re.split(regex_pattern, input()))) // split and break into new line if there is digit before and after ,.
+
+// re is the regular expressions module in Python. It allows you to search, split, match, and manipulate strings using powerful pattern matching.
+// The r before a string means "raw string" in Python. It tells Python not to treat backslashes \ as escape characters.
+// \d → digit, \w → word character, \\ → literal backslash. without r we have to use an extra treat backslashes \.
