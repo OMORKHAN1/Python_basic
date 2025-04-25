@@ -8,3 +8,7 @@ print("\n".join(re.split(regex_pattern, input()))) // split and break into new l
 // re is the regular expressions module in Python. It allows you to search, split, match, and manipulate strings using powerful pattern matching.
 // The r before a string means "raw string" in Python. It tells Python not to treat backslashes \ as escape characters.
 // \d → digit, \w → word character, \\ → literal backslash. without r we have to use an extra treat backslashes \.
+// r is not a module or function — it's just a prefix in Python that creates a raw string.
+// print("\n")   # This will create a new line, print(r"\n")  # This will literally print: \n
+// just like f string (formatted string). 
+// r & f both are string prefixes in Python that change how the string is interpreted.
