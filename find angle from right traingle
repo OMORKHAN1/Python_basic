@@ -1,28 +1,23 @@
 import math
 
 def angle_MBC(ab, bc):
-    # Calculate the hypotenuse (Pythagoras theorem)
-    ac = math.sqrt(ab**2 + bc**2)
+    # Check if the sides are equal (isosceles right triangle)
+    if ab == bc:
+        return 45  # In an isosceles right triangle, the angle is always 45°
     
-    # Calculate the angle using cosine rule
-    # cos(θ) = AB / AC, where AB = ab, AC = ac
-    cos_theta = ab / ac
+    # Otherwise, calculate the angle using atan2
+    angle_rad = math.atan2(ab, bc)  # atan2 gives the angle in radians
+    angle_deg = math.degrees(angle_rad)  # Convert radians to degrees
     
-    # Calculate the angle in radians first. it is the process in pyhton. fraom radiants to degree we need to calculate
-    angle_rad = math.acos(cos_theta)
-    
-    # Convert radians to degrees
-    angle_deg = math.degrees(angle_rad)
-    
-    # Return the rounded angle
+    # Round the angle to the nearest integer
     return round(angle_deg)
 
 # Get input values
-ab = int(input())  # Side AB
-bc = int(input())  # Side BC
+ab = int(input())
+bc = int(input())
 
-# Calculate the angle
+# Call the function to calculate the angle
 MBC = angle_MBC(ab, bc)
 
-# Print the result with the degree symbol
-print((str(MBC)), chr(176), sep='') // chr(176) print degree and its str type data
+# Print the result, including the degree symbol
+print((str(MBC)), chr(176), sep='')  // chr(176) print degree and its str type data
