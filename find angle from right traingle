@@ -1,15 +1,28 @@
 import math
 
-def angle_MBC(ab,bc):
-    numerator = ab**2
-    denominator = ab**2+bc**2
-    cos_theta = numerator/denominator
+def angle_MBC(ab, bc):
+    # Calculate the hypotenuse (Pythagoras theorem)
+    ac = math.sqrt(ab**2 + bc**2)
+    
+    # Calculate the angle using cosine rule
+    # cos(θ) = AB / AC, where AB = ab, AC = ac
+    cos_theta = ab / ac
+    
+    # Calculate the angle in radians first. it is the process in pyhton. fraom radiants to degree we need to calculate
+    angle_rad = math.acos(cos_theta)
+    
+    # Convert radians to degrees
+    angle_deg = math.degrees(angle_rad)
+    
+    # Return the rounded angle
+    return round(angle_deg)
 
-    theta_rad = math.acos(cos_theta)  #to find inverse value you need to find radiants value first
-    theta_deg = math.degrees(theta_rad)
+# Get input values
+ab = int(input())  # Side AB
+bc = int(input())  # Side BC
 
-    return theta_deg
+# Calculate the angle
+MBC = angle_MBC(ab, bc)
 
-ab, bc = map(int,input("Enter angle AB and BC separated by space: ").split())
-MBC = angle_MBC(ab,bc)
-print(f"Angle MBC = {MBC:.2f} degree")
+# Print the result with the degree symbol
+print(f"{MBC}°")
