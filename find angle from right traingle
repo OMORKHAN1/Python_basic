@@ -1,0 +1,15 @@
+import math
+
+def angle_MBC(ab,bc):
+    numerator = ab**2
+    denominator = ab**2+bc**2
+    cos_theta = numerator/denominator
+
+    theta_rad = math.acos(cos_theta)  #to find inverse value you need to find radiants value first
+    theta_deg = math.degrees(theta_rad)
+
+    return theta_deg
+
+ab, bc = map(int,input("Enter angle AB and BC separated by space: ").split())
+MBC = angle_MBC(ab,bc)
+print(f"Angle MBC = {MBC:.2f} degree")
