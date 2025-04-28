@@ -25,4 +25,4 @@ bc = int(input())  # Side BC
 MBC = angle_MBC(ab, bc)
 
 # Print the result with the degree symbol
-print(f"{MBC}°")
+print((str(MBC)), chr(176), sep='') // chr(176) print degree and its str type data
