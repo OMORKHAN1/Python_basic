@@ -1,0 +1,85 @@
+#creating blueprint for the calclutaor named as Calculator
+class Calculator:
+
+    #creatning methods/functions for the blueprint 
+    def addition(self, *args):  #self represents bjects here. self = c
+        return sum(args)
+
+    def subtract(self, *args):
+        if not args:
+            return 0
+        result = args[0]
+        for num in args[1:]:
+            result -= num
+        return result
+
+    def multiply(self, *args):
+        if not args:
+            return 1
+        result = args[0]
+        for num in args[1:]:
+            result *= num
+        return result
+
+    def division(self, *args):
+        if not args:
+            return "No numbers given"
+        result = args[0]
+        try:
+            for num in args[1:]:
+                result /= num
+            return result
+        except ZeroDivisionError:
+            return "Error: Division by zero"
+
+# Create an instance/object of the Calculator class so that the blueprint and its all methods/functions can be accessed 
+# first create the blueprint and then create an object/instance. We will always use this object not the blueprint for operation.
+
+c = Calculator() 
+
+
+# Infinite loop to perform calculation
+while True:
+
+    print("Type a for addition\nType s for subtract\nType m for multiply\nType d for division\noff to exit\n ")
+
+    user = input("Enter command and numbers (e.g., 'a 5 7'): ").split()
+    print()
+    
+    if not user:
+        print("No input given.")
+        continue
+
+    command, *numbers = user
+    
+    if command == "off":
+        break
+    
+    if len(numbers) <2:
+        print("Please enter atleast two numbers.")
+        continue
+
+    try:
+        nums = list(map(int, numbers))
+        # Map command to actual method name
+        cmd_map = {
+            "a": "addition",
+            "s": "subtract",
+            "m": "multiply",
+            "d": "division"
+        }
+
+        if command in cmd_map:
+            method_name = cmd_map[command]
+            method = getattr(c, method_name)      # calling the method from the instance/object. i,e method = calculator.addition()
+            result = method(*nums)                 # passing the value result = calculator.addition(x,y)
+            print("Result:", result)
+            print()
+
+        else:
+            print(f"Unknown command: {command}")
+            print()
+            
+    except ValueError:
+        print("Please enter valid numbers.")
+        print()
