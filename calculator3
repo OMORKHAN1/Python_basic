@@ -1,0 +1,22 @@
+class Calculator:
+    def calculation(self, expression: str):
+        try:
+            result = eval(expression)
+            return result
+        except ZeroDivisionError:
+            return "Error: Division by zero"
+        except Exception as e:
+            return f"Invalid expression: {e}"
+
+
+c = Calculator()
+
+while True:
+    print("\nEnter a full expression like a real calculator (e.g., 4+5-2*3/6)")
+    expr = input("Type 'off' to exit\n\nYour expression: ")
+    result = c.calculation(expr)
+    if expr.lower() == "off":
+        break
+
+    print("Result:", result)
+
