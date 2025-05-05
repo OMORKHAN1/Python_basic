@@ -1,0 +1,69 @@
+#creating blueprint for the calclutaor named as Calculator
+class Calculator:
+
+    #creatning methods/functions for the blueprint 
+    def addition(self, x, y):
+        return x + y
+
+    def subtract(self, x, y):
+        return x - y
+
+    def multiply(self, x, y):
+        return x * y
+
+    def division(self, x, y):
+        if y == 0:
+            return "Cannot divide by zero"
+        return x / y
+
+# Create an instance/object of the Calculator class so that the blueprint and its all methods/functions can be accessed 
+# first create the blueprint and then create an object/instance. We will always use this object not the blueprint for operation.
+
+c = Calculator() 
+
+
+# Infinite loop to perform calculation
+while True:
+
+    print("Type a for addition\nType s for subtract\nType m for multiply\nType d for division\noff to exit\n ")
+
+    user = input("Enter command and two numbers (e.g., 'a 5 7'): ").split()
+    print()
+    
+    if not user:
+        print("No input given.")
+        continue
+
+    command, *numbers = user
+    
+    if command == "off":
+        break
+    
+    if len(numbers) != 2:
+        print("Please enter two numbers.")
+        continue
+
+    try:
+        x, y = map(int, numbers)
+        # Map command to actual method name
+        cmd_map = {
+            "a": "addition",
+            "s": "subtract",
+            "m": "multiply",
+            "d": "division"
+        }
+
+        if command in cmd_map:
+            method_name = cmd_map[command]
+            method = getattr(c, method_name)      # calling the method from the instance/object. i,e method = calculator.addition()
+            result = method(x, y)                 # passing the value result = calculator.addition(x,y)
+            print("Result:", result)
+            print()
+
+        else:
+            print(f"Unknown command: {command}")
+            print()
+            
+    except ValueError:
+        print("Please enter valid numbers.")
+        print()
