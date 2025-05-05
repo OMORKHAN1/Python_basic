@@ -1,0 +1,41 @@
+import math
+
+class ScientificCalculator:
+    def calculation(self, expression: str):
+        # Replace 'ln' with 'log' for natural logarithm
+        expression = expression.replace('ln', 'log')
+        
+        # Define safe math functions and constants
+        safe_dict = {
+            "sqrt": math.sqrt,
+            "log": math.log,         # natural log
+            "log10": math.log10,     # base-10 log
+            "sin": math.sin,
+            "cos": math.cos,
+            "tan": math.tan,
+            "pi": math.pi,
+            "e": math.e,
+            "exp": math.exp,
+            "abs": abs,
+            "__builtins__": None     # block dangerous built-ins
+        }
+
+        try:
+            result = eval(expression, {"__builtins__": None}, safe_dict)
+            return result
+        except ZeroDivisionError:
+            return "Error: Division by zero"
+        except Exception as e:
+            return f"Invalid expression: {e}"
+
+
+# Main loop
+calc = ScientificCalculator()
+
+while True:
+    expr = input("\nEnter scientific expression (type 'off' to exit): ")
+
+    if expr.strip().lower() == "off":
+        break
+
+    print("Result:", calc.calculation(expr))
