@@ -1,0 +1,20 @@
+s = input()
+
+char_counts = {}
+
+for char in s:
+    if char in char_counts:
+        char_counts[char] += 1
+    else: 
+        char_counts[char] = 1
+
+
+char_list = []
+
+for char in char_counts:
+    char_list.append((char, char_counts[char]))
+
+sorted_char = sorted(char_list, key = lambda x:(-x[1], x[0]))
+
+for char, count in sorted_char[:3]:
+    print(char, count)
