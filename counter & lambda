@@ -4,8 +4,8 @@ Counter = Counter(s) // counter is dictionary type data type. creating an object
 
 sorted_char = sorted(Counter.items(),key = lambda x:(-x[1],x[0])) // counter.items will create tuple in list format. its easier to sort the lis. thats why we are creating list. annonymous lambda fuctions will help to sort the list in descending order.
 
-for count, char in sorted_char[:3]: // printing upto 3 as per the instruction
-    print(count,char)
+for char, count in sorted_char[:3]: 
+    print(char,count)
 
 // EXPLANATION---------------------------------------------
 // You use this specific lambda expression when:
