@@ -1,10 +1,10 @@
 from collections import Counter
 s = input()
-Counter = Counter(s)
+Counter = Counter(s) // counter is dictionary type data type. creating an object on counter and passing s inside it. It will create a dictionary and count automatically occurance. key(string) - value(occurance)
 
-sorted_char = sorted(Counter.items(),key = lambda x:(-x[1],x[0]))
+sorted_char = sorted(Counter.items(),key = lambda x:(-x[1],x[0])) // counter.items will create tuple in list format. its easier to sort the lis. thats why we are creating list. annonymous lambda fuctions will help to sort the list in descending order.
 
-for count, char in sorted_char[:3]:
+for count, char in sorted_char[:3]: // printing upto 3 as per the instruction
     print(count,char)
 
 // EXPLANATION---------------------------------------------
