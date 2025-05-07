@@ -1,0 +1,26 @@
+from collections import Counter
+s = input()
+Counter = Counter(s)
+
+sorted_char = sorted(Counter.items(),key = lambda x:(-x[1],x[0]))
+
+for count, char in sorted_char[:3]:
+    print(count,char)
+
+// EXPLANATION---------------------------------------------
+// You use this specific lambda expression when:
+
+// You're sorting a list of (key, value) pairs (like from Counter.items()),
+
+// You want to sort by:
+
+// Descending order of value (-x[1]),
+
+// And alphabetical order of key (x[0]) if values are equal.
+
+// EXAMPLE-------------------------
+
+// data = [('apple', 5), ('banana', 3), ('grape', 5), ('cherry', 2)]
+
+// sorted_data = sorted(data, key=lambda x: (-x[1], x[0]))
+// print(sorted_data)
